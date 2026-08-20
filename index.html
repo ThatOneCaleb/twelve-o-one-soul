@@ -32,7 +32,8 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.02;letter-spac
 /* nav */
 nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
-.brand{font-family:var(--display);font-size:24px;font-weight:700;color:var(--ink)}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:24px;font-weight:700;color:var(--ink)}
+.logo-badge{width:46px;height:46px;border-radius:50%;background:var(--accent);color:var(--accent-2);border:2px solid var(--accent-2);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.02em;flex:none}
 .nav-links{display:flex;gap:30px}.nav-links a{font-weight:500;font-size:15px;opacity:.85}.nav-links a:hover{color:var(--accent);opacity:1}
 .nav-phone{font-weight:700;color:var(--accent)}
 @media(max-width:880px){.nav-links,.nav-phone{display:none}}
@@ -114,9 +115,9 @@ const CFG={
   phone:'(616) 299-1650', tel:'+16162991650',
   address:'1553 Kalamazoo Ave SE, Grand Rapids, MI 49507',
   orderLabel:'Call to Order',
-  theme:{'--bg':'#f7efe1','--surface':'#fffaf0','--ink':'#241611','--muted':'#7d6a5f','--line':'#e9dcc8','--accent':'#7a2f45','--accent-2':'#d29a2e','--hero':'#241510','--display':"'Playfair Display',Georgia,serif",'--body':"'Inter',system-ui,sans-serif"},
-  heroKw:'friedchicken', storyKw:'friedchicken',
-  gallery:['friedchicken','macandcheese','cornbread','collardgreens'],
+  theme:{'--bg':'#f7efe1','--surface':'#fffaf0','--ink':'#241611','--muted':'#7d6a5f','--line':'#e9dcc8','--accent':'#8f2d3f','--accent-2':'#e0a52e','--hero':'#241510','--display':"'Playfair Display',Georgia,serif",'--body':"'Inter',system-ui,sans-serif"},
+  heroKw:'friedchicken', storyKw:'chickenwings',
+  gallery:[['friedchicken',1],['macandcheese',6],['cornbread',4],['collardgreens',1]],
   highlights:[
     {em:'🍗',t:'Golden Fried Chicken',d:'Brined, hand-breaded, and fried to order.'},
     {em:'🥘',t:'Oxtails & Gravy',d:'Slow-braised until they fall apart, over rice.'},
@@ -135,7 +136,7 @@ const CFG={
 
 <nav>
   <div class="wrap nav-in">
-    <a href="#" class="brand" id="navBrand">Taquero Mucho</a>
+    <a href="#" class="brand"><span class="logo-badge">1201</span><span id="navBrand"></span></a>
     <div class="nav-links"><a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#visit">Visit</a></div>
     <a class="nav-phone" id="navPhone" href="#"></a>
   </div>
@@ -199,9 +200,9 @@ const CFG={
   for(const k in c.theme) document.documentElement.style.setProperty(k,c.theme[k]);
   // images
   const IMG=(w,h,kw,l)=>`url("https://loremflickr.com/${w}/${h}/${kw}?lock=${l}")`;
-  $('heroArt').style.backgroundImage=IMG(900,1040,c.heroKw,11);
-  $('storyMedia').style.backgroundImage=IMG(900,720,c.storyKw,12);
-  $('galGrid').innerHTML=c.gallery.map((kw,i)=>`<div style='background-image:${IMG(500,500,kw,20+i)}'></div>`).join('');
+  $('heroArt').style.backgroundImage=IMG(900,1040,c.heroKw,1);
+  $('storyMedia').style.backgroundImage=IMG(900,720,c.storyKw,1);
+  $('galGrid').innerHTML=c.gallery.map(([kw,l])=>`<div style='background-image:${IMG(500,500,kw,l)}'></div>`).join('');
   // text
   $('navBrand').textContent=c.name; $('footBrand').textContent=c.name;
   $('navPhone').textContent=c.phone; $('navPhone').href='tel:'+c.tel;
