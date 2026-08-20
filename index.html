@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Twelve O One Soul — Southern Soul Food | Grand Rapids, MI</title>
+<meta name="description" content="Taquero Mucho serves authentic street tacos and Mexican favorites on Division Ave in Grand Rapids, MI. Handmade tortillas, house salsas, al pastor. Call to order." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- FONT: swap per restaurant -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* THEME — set per restaurant */
+  --bg:#fdf6ec; --surface:#ffffff; --ink:#2a1a12; --muted:#7c6a5e; --line:#eaded0;
+  --accent:#c1502e; --accent-2:#6f8f2a; --hero:#241610; --cream:#fdf6ec;
+  --display:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif;
+  --max:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.02;letter-spacing:-0.01em}
+.eyebrow{font-family:var(--body);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;padding:14px 26px;border-radius:999px;cursor:pointer;transition:.2s;border:2px solid transparent}
+.btn-fill{background:var(--accent);color:#fff}.btn-fill:hover{filter:brightness(.94)}
+.btn-out{border-color:currentColor;color:var(--ink)}.btn-out:hover{background:var(--ink);color:var(--bg)}
+.btn-light{border-color:rgba(255,255,255,.6);color:#fff}.btn-light:hover{background:#fff;color:var(--hero)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{font-family:var(--display);font-size:24px;font-weight:700;color:var(--ink)}
+.nav-links{display:flex;gap:30px}.nav-links a{font-weight:500;font-size:15px;opacity:.85}.nav-links a:hover{color:var(--accent);opacity:1}
+.nav-phone{font-weight:700;color:var(--accent)}
+@media(max-width:880px){.nav-links,.nav-phone{display:none}}
+
+/* hero — split */
+.hero{padding:56px 0 20px}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero .eyebrow{margin-bottom:18px}
+.hero h1{font-size:clamp(46px,7vw,86px);color:var(--ink)}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .lead{margin-top:22px;font-size:19px;color:var(--muted);max-width:42ch}
+.hero .cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.hero .art{aspect-ratio:4/4.6;border-radius:20px;background:var(--hero) center/cover;box-shadow:0 40px 70px -40px rgba(0,0,0,.5)}
+@media(max-width:880px){.hero .grid{grid-template-columns:1fr;gap:30px}.hero .art{aspect-ratio:16/12}}
+
+/* highlights */
+.high{padding:20px 0 70px}
+.high-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hcard{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent-2);border-radius:16px;padding:26px;transition:.22s}
+.hcard:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(0,0,0,.25)}
+.hcard .em{font-size:30px}.hcard h3{font-size:22px;margin:10px 0 6px;color:var(--ink)}.hcard p{color:var(--muted);font-size:15px}
+@media(max-width:880px){.high-grid{grid-template-columns:1fr}}
+
+/* menu */
+.menu{background:var(--surface);padding:96px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.menu .top{text-align:center;max-width:600px;margin:0 auto 54px}
+.menu .top h2{font-size:clamp(34px,5vw,56px);color:var(--ink);margin:12px 0}
+.menu .top p{color:var(--muted)}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.mcat h3{font-family:var(--display);font-size:26px;color:var(--accent);margin-bottom:8px;padding-bottom:12px;border-bottom:2px solid var(--accent-2)}
+.mitem{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px dotted var(--line)}
+.mitem .n{font-weight:600;color:var(--ink)}
+.mitem .dots{flex:1;border-bottom:1px dotted #cbb;transform:translateY(-3px);opacity:.5}
+.mitem .p{font-weight:700;color:var(--accent)}
+.mitem .d{display:block;font-size:13px;color:var(--muted);font-weight:400;margin-top:2px}
+@media(max-width:880px){.mgrid{grid-template-columns:1fr;gap:36px}}
+
+/* story */
+.story{padding:96px 0}
+.story .grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.story .media{aspect-ratio:5/4;border-radius:18px;background:var(--hero) center/cover}
+.story h2{font-size:clamp(30px,4.4vw,46px);color:var(--ink);margin:12px 0 16px}
+.story p{color:var(--muted);margin-bottom:14px;font-size:17px}
+@media(max-width:880px){.story .grid{grid-template-columns:1fr;gap:28px}.story .media{order:-1}}
+
+/* gallery */
+.gallery{padding-bottom:96px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-grid div{aspect-ratio:1;border-radius:12px;background:var(--hero) center/cover}
+@media(max-width:880px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* visit */
+.visit{background:var(--hero);color:#fff;padding:96px 0}
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.visit h2{font-size:clamp(30px,4.4vw,48px);margin-bottom:20px}
+.visit .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15);max-width:360px}
+.visit .row b{font-weight:600;color:var(--accent-2)}.visit .row span{opacity:.8}
+.visit .info{font-size:17px;line-height:2;opacity:.92}
+.visit .info a{color:#fff;font-weight:700}
+.visit .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+@media(max-width:880px){.visit .grid{grid-template-columns:1fr;gap:34px}}
+
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:40px 0;text-align:center}
+footer .brand{font-family:var(--display);color:#fff;font-size:24px;margin-bottom:8px}
+footer .s{font-size:13px;opacity:.7;margin-top:8px}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}.rv.in{opacity:1;transform:none}
+nav.scrolled{box-shadow:0 8px 30px -14px rgba(0,0,0,.14)}
+@media(prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<script>
+const CFG={
+  name:'Twelve O One Soul',
+  eyebrow:'Soul Food · Grand Rapids',
+  h1:'Soul food, <em>made with love.</em>',
+  lead:'Fried chicken, oxtails, greens, and cornbread — the food that feels like home, on Kalamazoo Ave.',
+  phone:'(616) 299-1650', tel:'+16162991650',
+  address:'1553 Kalamazoo Ave SE, Grand Rapids, MI 49507',
+  orderLabel:'Call to Order',
+  theme:{'--bg':'#f7efe1','--surface':'#fffaf0','--ink':'#241611','--muted':'#7d6a5f','--line':'#e9dcc8','--accent':'#7a2f45','--accent-2':'#d29a2e','--hero':'#241510','--display':"'Playfair Display',Georgia,serif",'--body':"'Inter',system-ui,sans-serif"},
+  heroKw:'friedchicken', storyKw:'friedchicken',
+  gallery:['friedchicken','macandcheese','cornbread','collardgreens'],
+  highlights:[
+    {em:'🍗',t:'Golden Fried Chicken',d:'Brined, hand-breaded, and fried to order.'},
+    {em:'🥘',t:'Oxtails & Gravy',d:'Slow-braised until they fall apart, over rice.'},
+    {em:'🍠',t:'Scratch-Made Sides',d:'Mac, greens, yams — the way grandma made them.'},
+  ],
+  story:{h:'A plate that tastes like home.',p:['We cook the recipes we grew up on, from scratch, every day. Nothing frozen, nothing rushed — just good soul food and a warm welcome.','Come in for a plate, or call ahead and we’ll box it up hot.']},
+  hours:[['Tue – Sat','11am – 8pm'],['Sunday','12pm – 6pm'],['Monday','Closed']],
+  menu:[
+    {cat:'Mains',items:[['Fried Chicken (3 pc)','$12',''],['Smothered Chicken','$13',''],['Oxtails','$17','Over rice'],['Fried Catfish','$14',''],['Smothered Pork Chops','$14',''],['Meatloaf','$12','']]},
+    {cat:'Sides',items:[['Mac & Cheese','$4',''],['Collard Greens','$4',''],['Candied Yams','$4',''],['Black-Eyed Peas','$4',''],['Cornbread','$3',''],['Potato Salad','$4','']]},
+    {cat:'Plates',items:[['2-Side Plate','$13','Choice of main + 2 sides'],['3-Side Plate','$15','Choice of main + 3 sides'],['Family Bundle','$38','Feeds 4']]},
+    {cat:'Sweets',items:[['Peach Cobbler','$5',''],['Banana Pudding','$5',''],['Sweet Potato Pie','$5',''],['Sweet Tea','$3','']]},
+  ],
+};
+</script>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#" class="brand" id="navBrand">Taquero Mucho</a>
+    <div class="nav-links"><a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#visit">Visit</a></div>
+    <a class="nav-phone" id="navPhone" href="#"></a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow rv" id="heroEyebrow"></div>
+        <h1 class="rv" id="heroH1"></h1>
+        <p class="lead rv" id="heroLead"></p>
+        <div class="cta-row rv"><a class="btn btn-fill" id="heroOrder" href="#"></a><a class="btn btn-out" href="#menu">See the Menu</a></div>
+      </div>
+      <div class="art rv" id="heroArt"></div>
+    </div>
+  </div>
+</header>
+
+<section class="high"><div class="wrap"><div class="high-grid" id="highGrid"></div></div></section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="top rv"><div class="eyebrow">The Menu</div><h2 id="menuTitle">What's Cooking</h2><p>Dine in · take out · call ahead. Prices and items may vary.</p></div>
+    <div class="mgrid" id="menuGrid"></div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap"><div class="grid">
+    <div><div class="eyebrow rv">Our Story</div><h2 class="rv" id="storyH"></h2><div id="storyP"></div></div>
+    <div class="media rv" id="storyMedia"></div>
+  </div></div>
+</section>
+
+<section class="gallery"><div class="wrap"><div class="gal-grid" id="galGrid"></div></div></section>
+
+<section class="visit" id="visit">
+  <div class="wrap"><div class="grid">
+    <div>
+      <div class="eyebrow rv" style="color:#fff;opacity:.8">Come Hungry</div>
+      <h2 class="rv">Visit us on Division.</h2>
+      <div class="info rv" id="visitInfo"></div>
+      <div class="cta-row rv"><a class="btn btn-light" id="visitCall" href="#"></a></div>
+    </div>
+    <div>
+      <div class="eyebrow rv" style="color:#fff;opacity:.8">Hours</div>
+      <div class="rv" id="hoursBox" style="margin-top:14px"></div>
+    </div>
+  </div></div>
+</section>
+
+<footer>
+  <div class="wrap"><div class="brand" id="footBrand"></div><div id="footAddr"></div><div class="s">© 2026 · Grand Rapids, MI · Menu &amp; prices subject to change</div></div>
+</footer>
+
+<script>
+(function(){
+  const c=CFG, $=id=>document.getElementById(id);
+  // theme
+  for(const k in c.theme) document.documentElement.style.setProperty(k,c.theme[k]);
+  // images
+  const IMG=(w,h,kw,l)=>`url("https://loremflickr.com/${w}/${h}/${kw}?lock=${l}")`;
+  $('heroArt').style.backgroundImage=IMG(900,1040,c.heroKw,11);
+  $('storyMedia').style.backgroundImage=IMG(900,720,c.storyKw,12);
+  $('galGrid').innerHTML=c.gallery.map((kw,i)=>`<div style='background-image:${IMG(500,500,kw,20+i)}'></div>`).join('');
+  // text
+  $('navBrand').textContent=c.name; $('footBrand').textContent=c.name;
+  $('navPhone').textContent=c.phone; $('navPhone').href='tel:'+c.tel;
+  $('heroEyebrow').textContent=c.eyebrow; $('heroH1').innerHTML=c.h1; $('heroLead').textContent=c.lead;
+  $('heroOrder').textContent=c.orderLabel+' · '+c.phone; $('heroOrder').href='tel:'+c.tel;
+  $('menuTitle').textContent="What's Cooking";
+  $('storyH').textContent=c.story.h; $('storyP').innerHTML=c.story.p.map(p=>`<p class='rv'>${p}</p>`).join('');
+  $('visitInfo').innerHTML=`${c.address}<br>Call us: <a href='tel:${c.tel}'>${c.phone}</a>`;
+  $('visitCall').textContent='Call '+c.phone; $('visitCall').href='tel:'+c.tel;
+  $('footAddr').textContent=c.address;
+  // highlights
+  $('highGrid').innerHTML=c.highlights.map(h=>`<div class='hcard rv'><div class='em'>${h.em}</div><h3>${h.t}</h3><p>${h.d}</p></div>`).join('');
+  // menu
+  $('menuGrid').innerHTML=c.menu.map(cat=>`<div class='mcat rv'><h3>${cat.cat}</h3>`+cat.items.map(it=>`<div class='mitem'><span><span class='n'>${it[0]}</span>${it[2]?`<span class='d'>${it[2]}</span>`:''}</span><span class='dots'></span><span class='p'>${it[1]}</span></div>`).join('')+`</div>`).join('');
+  // hours
+  $('hoursBox').innerHTML=c.hours.map(h=>`<div class='row'><b>${h[0]}</b><span>${h[1]}</span></div>`).join('');
+  // reveals + stagger + nav
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>{const s=[...el.parentElement.children].filter(x=>x.classList.contains('rv'));const i=s.indexOf(el);if(i>0)el.style.transitionDelay=(i*0.06).toFixed(2)+'s';io.observe(el);});
+  const nv=document.querySelector('nav');addEventListener('scroll',()=>nv.classList.toggle('scrolled',scrollY>10),{passive:true});
+})();
+</script>
+</body>
+</html>
